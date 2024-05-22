@@ -2,6 +2,7 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import emailjs from "@emailjs/browser";
 import React, { useRef, useState } from "react";
+import Swal from "sweetalert2";
 
 const IndexPage = () => {
   const form = useRef();
@@ -17,6 +18,12 @@ const IndexPage = () => {
       .then(
         () => {
           console.log("SUCCESS!");
+          setEmailInput("");
+          Swal.fire({
+            title: "Sent!",
+            text: "Thanks for your interest. We will keep you posted!",
+            confirmButtonText: "Close",
+          });
         },
         (error) => {
           console.log("FAILED...", error);
