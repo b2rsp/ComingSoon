@@ -54,6 +54,7 @@ const IndexPage = () => {
           onSubmit={sendEmail}
         >
           <input
+            required
             name="message"
             value={emailInput}
             onChange={(e) => {
