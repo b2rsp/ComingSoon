@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import emailjs from "@emailjs/browser";
 import React, { useRef, useState } from "react";
 import Swal from "sweetalert2";
+import Script from "next/script";
 
 const IndexPage = () => {
   const form = useRef();
@@ -32,6 +33,12 @@ const IndexPage = () => {
   };
   return (
     <Layout title="Coming Soon - Clean Coming Soon Page (Tailwind CSS, NextJs & HTML5) created by themeptation.net">
+      {process.env.NODE_ENV === "production" ? (
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="b5aa43ac-598d-43ca-a644-2a683dbc9d6f"
+        />
+      ) : null}
       <img
         src="/images/xera.svg"
         alt="Themeptation "
